@@ -30,8 +30,8 @@ function describeElement(name, text, display) {
     tr.id = canvasID+name;
     document.getElementById(canvasID+'elDes').appendChild(tr);
   }
-  if (document.getElementById(canvasID+name).innerHTML != '<td>' + name + '</td><td>' + text + '</td>') {
-    document.getElementById(canvasID+name).innerHTML = '<td>' + name + '</td><td>' + text + '</td>';
+  if (document.getElementById(canvasID+name).innerHTML != '<th>' + name + '</th><td>' + text + '</td>') {
+    document.getElementById(canvasID+name).innerHTML = '<th>' + name + '</th><td>' + text + '</td>';
   }
   if (display == 1) {
     if (document.getElementById(canvasID+'Label') == undefined) {
@@ -44,8 +44,8 @@ function describeElement(name, text, display) {
       tr.id = canvasID+name + 'Lbl';
       document.getElementById(canvasID+'eLbl').appendChild(tr);
     }
-    if (document.getElementById(canvasID+name + 'Lbl').innerHTML != '<td>' + name + '</td><td>' + text + '</td>') {
-      document.getElementById(canvasID+name + 'Lbl').innerHTML = '<td>' + name + '</td><td>' + text + '</td>';
+    if (document.getElementById(canvasID+name + 'Lbl').innerHTML != '<th>' + name + '</th><td>' + text + '</td>') {
+      document.getElementById(canvasID+name + 'Lbl').innerHTML = '<th>' + name + '</th><td>' + text + '</td>';
     }
   }
 }

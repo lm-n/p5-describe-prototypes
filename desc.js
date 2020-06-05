@@ -1,5 +1,5 @@
 const FALLBACK = 0, LABEL = 1;
-function describe(canvasID,text,display) {
+function describe(text,display) {
   if (document.getElementById(canvasID+'Description') == undefined) {
     document.getElementById(canvasID).innerHTML = '<div id="'+canvasID+'Description" role="region" aria-label="Canvas Description"><p id="'+canvasID+'desc"></p></div>';
   } else if (document.getElementById(canvasID+'desc') == undefined) {
@@ -19,7 +19,7 @@ function describe(canvasID,text,display) {
     }
   }
 }
-function describeElement(canvasID,name, text, display) {
+function describeElement(name, text, display) {
   if (document.getElementById(canvasID+'Description') == undefined) {
     document.getElementById(canvasID).innerHTML = '<div id="'+canvasID+'Description" role="region" aria-label="Canvas Description"><table id="'+canvasID+'elDes"></table></div>';
   } else if (document.getElementById(canvasID+'elDes') == undefined) {
@@ -30,8 +30,8 @@ function describeElement(canvasID,name, text, display) {
     tr.id = canvasID+name;
     document.getElementById(canvasID+'elDes').appendChild(tr);
   }
-  if (document.getElementById(canvasID+name).innerHTML != '<td>' + name + '</td><td>' + text + '</td>') {
-    document.getElementById(canvasID+name).innerHTML = '<td>' + name + '</td><td>' + text + '</td>';
+  if (document.getElementById(canvasID+name).innerHTML != '<th>' + name + '</th><td>' + text + '</td>') {
+    document.getElementById(canvasID+name).innerHTML = '<th>' + name + '</th><td>' + text + '</td>';
   }
   if (display == 1) {
     if (document.getElementById(canvasID+'Label') == undefined) {
@@ -44,8 +44,8 @@ function describeElement(canvasID,name, text, display) {
       tr.id = canvasID+name + 'Lbl';
       document.getElementById(canvasID+'eLbl').appendChild(tr);
     }
-    if (document.getElementById(canvasID+name + 'Lbl').innerHTML != '<td>' + name + '</td><td>' + text + '</td>') {
-      document.getElementById(canvasID+name + 'Lbl').innerHTML = '<td>' + name + '</td><td>' + text + '</td>';
+    if (document.getElementById(canvasID+name + 'Lbl').innerHTML != '<th>' + name + '</th><td>' + text + '</td>') {
+      document.getElementById(canvasID+name + 'Lbl').innerHTML = '<th>' + name + '</th><td>' + text + '</td>';
     }
   }
 }
