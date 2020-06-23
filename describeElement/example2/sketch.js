@@ -1,33 +1,47 @@
 function setup() {
-  createCanvas(200, 100);
-  describe('Two emojis over a pink background', LABEL);
+  createCanvas(300, 200);
+  describe('a red wheelbarrow beside the white chickens inspired by "The Red Wheelbarrow" by William Carlos Williams',LABEL);
 }
 
-function draw(){  
-  background('pink');
-  fill('yellow');
+function draw() {
+  background('skyblue');
   noStroke();
-  describeElement("Grinning face", "A yellow face located to the left. It has simple open eyes and a broad open smile showing upper teeth. Often conveys general pleasure and good cheer or humor.", LABEL);
-  ellipse(50, 50, 70, 70);
-  fill('#ad5240');
-  arc(50, 55, 40, 40, radians(0), radians(180), PIE);
-  fill(0);
-  ellipse(40, 35, 15, 20);
-  ellipse(60, 35, 15, 20);
-  fill(255);
-  arc(50, 55, 40, 20, radians(0), radians(180), PIE);
-  ellipse(43, 35, 5, 5);
-  ellipse(63, 35, 5, 5);
-  describeElement("Smiling face with heart-eyes", "A yellow face located to the right. It has an open smile, and red, cartoon-styled hearts for eyes. Often conveys enthusiastic feelings of love.", LABEL);
-  fill('yellow');
-  ellipse(150, 50, 70, 70);
-  fill('#ad5240');
-  arc(150, 55, 40, 40, radians(0), radians(180), PIE);
+  fill('#a67b60');
+  rect(0,120,300,100);
+  //red wheelbarrow
+  describeElement("wheelbarrow","A red wheelbarrow whith a gray wheel rests on the brown ground.",LABEL);
+  fill('#706a58');
+  ellipse(35,137,30,30);
+  strokeWeight(3);
+  stroke('gray');
+  line(135,105,130,140);
+  line(124,110,130,140);
+  line(35,137,44,100);
+  noStroke();
   fill('red');
-  ellipse(143, 35, 10, 10);
-  ellipse(137, 35, 10, 10);
-  triangle(132, 35, 140, 45, 148, 35);
-  ellipse(157, 35, 10, 10);
-  ellipse(163, 35, 10, 10);
-  triangle(168, 35, 160, 45, 152, 35);
+  quad(30, 75, 60, 130, 140, 105, 140, 76);
+  strokeWeight(5);
+  stroke('brown');
+  line(35,137,200,84);
+  //chicken
+  let cC= [[200,140],[250,100], [100,150]];
+  for (i=0; i<cC.length; i++){
+    let x = cC[i][0];
+    let y = cC[i][1];
+    noStroke();
+    fill('red');
+    arc(x-12, y-8, 18, 20, radians(180), radians(0), PIE);
+    fill(255);
+    arc(x, y, 40, 40, 0, PI + QUARTER_PI, PIE);
+    arc(x-15, y, 20, 30, radians(180), radians(0), PIE);
+    fill('orange');
+    triangle(x-25,y,x-36,y,x-23,y-7);
+    strokeWeight(3);
+    stroke('orange');
+    line(x-5,y+20,x-5,y+30);
+    line(x+5,y+20,x+5,y+30);
+  }
+  describeElement("chicken 1","A white chicken infront of the wheelbarrow.",LABEL);
+  describeElement("chicken 2","A white chicken to the right of the wheelbarrow.",LABEL);
+  describeElement("chicken 3","A white chicken standing between chicken 1 and chicken 2.",LABEL);
 }

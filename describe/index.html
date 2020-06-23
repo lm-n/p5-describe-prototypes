@@ -1,7 +1,5 @@
 <!DOCTYPE html><html lang="en"><head>
-    <script src="p5.js"></script>
-    <script src="p5.sound.min.js"></script>
-    <script src="desc.js"></script>
+    <script src="../p5.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
     <style>
@@ -13,76 +11,63 @@ body {
   </head>
   <body>
   	<h1><a href="../index.html">describe() & describeElement() prototypes</a></h1>
+    <main>
   		<h2>describe()</h2>
   			<h3>Examples</h3>
   				<h4>Example 1</h4>
             <div>
             <div id="example1Canvas" aria-label="Example 1 canvas"></div>
             		<a href="example1/index.html" target="_blank">Open example 1 in new tab</a><br>
-            		<a href="https://editor.p5js.org/luis@lm-n.com/sketches/plABZKk8-" target="_blank">Open example 1 in web editor</a>
+            		<a href="https://editor.p5js.org/luis@lm-n.com/sketches/CLbelw0K-" target="_blank">Open example 1 in web editor</a>
             		<pre><code aria-label="Example 1 code">
-function setup() {
-  createCanvas(200, 200);
-  describe("orange eyes over a gray background",LABEL);
-}
-
-function draw() {
-  background(220);
-  fill(255);
-  ellipse(50,height/2,70,40);
-  ellipse(150,height/2,70,40);
-  fill("orange");
-  ellipse(50,height/2,30,30);
-  ellipse(150,height/2,30,30);
-  fill(0);
-  ellipse(50,height/2,5,5);
-  ellipse(150,height/2,5,5);
-}
+describe('pink square with red heart in the bottom right corner', LABEL);
+background('pink');
+fill('red');
+noStroke();
+ellipse(66.6, 66.6, 20, 20);
+ellipse(83.2, 66.6, 20, 20);
+triangle(91.2, 72.6, 75, 95, 58.6, 72.6);
             		</code></pre>
               </div>
           	<h4>Example 2</h4>
               <div>
               <div id="example2Canvas" aria-label="Example 2 canvas"></div>
             	<a href="example2/index.html" target="_blank">Open example 2 in new tab</a><br>
-            	<a href="https://editor.p5js.org/luis@lm-n.com/sketches/uLDdj65ZT" target="_blank">Open example 2 in web editor</a>
+            	<a href="https://editor.p5js.org/luis@lm-n.com/sketches/gvs_bI4Wm" target="_blank">Open example 2 in web editor</a>
             	<pre><code aria-label="Example 2 code">
 let x = 0;
-
-function setup() {
-  createCanvas(300, 100);
-  describe('a green circle moving to the right');
-}
-
 function draw() {
-  if (x==300){
-    x=0;
+  if (x > 100) {
+    x = 0;
   }
   background(220);
-  fill(0,255,0);
-  ellipse(x,50,40,40);
-  x=x+0.1;
-  describe('a green circle at pos '+ round(x) +' moving to the right');
+  fill(0, 255, 0);
+  ellipse(x, 50, 40, 40);
+  x = x + 0.1;
+  describe('green circle at x pos ' + round(x) + ' moving to the right');
 }
             	</code></pre>
             </div>
   		<h3>Description</h3>
-  			<p>Creates a screen-reader accessible description for the canvas in the DOM. The first parameter should be a string with a description of the canvas.</p>
+  			<p>Creates a screen-reader accessible description for the canvas in the DOM. The first parameter should be a string with a description of the canvas. The second parameter is optional. If specified, it determines how the description is displayed.</p>
 
-  			<p>The second parameter is optional. If specified, it determines how the description is displayed. <code>describe(str,LABEL)</code> displays the description to all users as a <a href="https://en.wikipedia.org/wiki/Museum_label" target="_blank">tombstone or exhibit label/caption<a> by creating a <code>&lt;div id="label"&gt;</code> with the description right after the canvas. You can style it as you wish in your CSS. <code>describe(str,FALLBACK)</code> makes the description accessible to screen-reader users only in a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility" target="_blank">sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the description will only be available to screen-reader users.
-  			</p>
+  			<p><code class="language-javascript">describe(str, LABEL)</code> displays the description to all users as a <a href="https://en.wikipedia.org/wiki/Museum_label" target="_blank"> tombstone or exhibit label/caption</a> by creating a <code class="language-javascript">&lt;div&gt;</code> with the description right after the canvas.You can style it as you wish in your CSS.</p>
+
+        <p><code class="language-javascript">describe(str, FALLBACK)</code> makes the description accessible to screen-reader users only, in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility" target="_blank"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the description will only be available to screen-reader users.</p>
   		<h3>Syntax</h3>
-  			<code>describe(str,[display])</code>
+  			<code>describe(text,[display])</code>
   		<h3>Parameters</h3>
   			<table>
   				<tr>
-  					<td>str</td>
-  					<td>String describing the canvas</td>
+  					<td>text</td>
+  					<td>String: description of the canvas</td>
   				</tr>
   				<tr>
     				<td>display</td>
     				<td>Constant: either LABEL or FALLBACK (Optional)</td>
 				</tr>
 			</table>
+    </main>
 		<h2><a href="../describeElement/index.html">describeElement()</a></h2>
     <script src="sketch.js"></script>
   

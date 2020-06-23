@@ -1,17 +1,9 @@
 function setup() {
-  createCanvas(200, 200);
-  describe("orange eyes over a gray background",LABEL);
-}
-
-function draw() {
-  background(220);
-  fill(255);
-  ellipse(50,height/2,70,40);
-  ellipse(150,height/2,70,40);
-  fill("orange");
-  ellipse(50,height/2,30,30);
-  ellipse(150,height/2,30,30);
-  fill(0);
-  ellipse(50,height/2,5,5);
-  ellipse(150,height/2,5,5);
+  describe('pink square with red heart in the bottom right corner');
+  background('pink');
+  fill('red');
+  noStroke();
+  ellipse(66.6, 66.6, 20, 20);
+  ellipse(83.2, 66.6, 20, 20);
+  triangle(91.2, 72.6, 75, 95, 58.6, 72.6);
 }

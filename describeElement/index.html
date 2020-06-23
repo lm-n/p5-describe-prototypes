@@ -1,7 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
-    <script src="p5.js"></script>
-    <script src="p5.sound.min.js"></script>
-    <script src="desc.js"></script>
+<!DOCTYPE html><html lang="en">
+  <head>
+    <script src="../p5.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8"><style>
 body {
@@ -18,111 +17,36 @@ body {
             <div>
             <div id="example1Canvas" aria-label="Example 1 canvas"></div>
                 <a href="example1/index.html" target="_blank">Open example 1 in new tab</a><br>
-                <a href="https://editor.p5js.org/luis@lm-n.com/sketches/kGu9V6gLC" target="_blank">Open example 1 in web editor</a>
+                <a target="_blank" href="https://editor.p5js.org/luis@lm-n.com/sketches/ruig9IQjG">Open example 1 in web editor</a>
                 <pre><code aria-label="Example 1 code">
-function setup() {
-  createCanvas(300, 200);
-  describe('a red wheelbarrow beside the white chickens inspired by "The Red Wheelbarrow" by William Carlos Williams',LABEL);
-}
-function draw() {
-  background('skyblue');
-  noStroke();
-  fill('#a67b60');
-  rect(0,120,300,100);
-  //red wheelbarrow
-  describeElement("wheelbarrow","A red wheelbarrow whith a gray wheel rests on the brown ground.",LABEL);
-  fill('#706a58');
-  ellipse(35,137,30,30);
-  strokeWeight(3);
-  stroke('gray');
-  line(135,105,130,140);
-  line(124,110,130,140);
-  line(35,137,44,100);
-  noStroke();
-  fill('red');
-  quad(30, 75, 60, 130, 140, 105, 140, 76);
-  strokeWeight(5);
-  stroke('brown');
-  line(35,137,200,84);
-  //chicken
-  let cC= [[200,140],[250,100], [100,150]];
-  for (i=0; i&lt;cC.length; i++){
-    let x = cC[i][0];
-    let y = cC[i][1];
-    noStroke();
-    fill('red');
-    arc(x-12, y-8, 18, 20, radians(180), radians(0), PIE);
-    fill(255);
-    arc(x, y, 40, 40, 0, PI + QUARTER_PI, PIE);
-    arc(x-15, y, 20, 30, radians(180), radians(0), PIE);
-    fill('orange');
-    triangle(x-25,y,x-36,y,x-23,y-7);
-    strokeWeight(3);
-    stroke('orange');
-    line(x-5,y+20,x-5,y+30);
-    line(x+5,y+20,x+5,y+30);
-  }
-  describeElement("chicken 1","A white chicken infront of the wheelbarrow.",LABEL);
-  describeElement("chicken 2","A white chicken to the right of the wheelbarrow.",LABEL);
-  describeElement("chicken 3","A white chicken standing between chicken 1 and chicken 2.",LABEL);
-}
+describe('Heart and yellow circle over pink background', LABEL);
+noStroke();
+background('pink');
+describeElement('Circle', 'Yellow circle in the top left corner', LABEL);
+fill('yellow');
+ellipse(25, 25, 40, 40);
+describeElement('Heart', 'red heart in the bottom right corner', LABEL);
+fill('red');
+ellipse(66.6, 66.6, 20, 20);
+ellipse(83.2, 66.6, 20, 20);
+triangle(91.2, 72.6, 75, 95, 58.6, 72.6);
                 </code></pre>
               </div>
-            <h4>Example 2</h4>
-              <div>
-              <div id="example2Canvas" aria-label="Example 2 canvas"></div>
-              <a href="example2/index.html" target="_blank">Open example 2 in new tab</a><br>
-              <a href="https://editor.p5js.org/luis@lm-n.com/sketches/GD-4ShNoZ" target="_blank">Open example 2 in web editor</a>
-              <pre><code aria-label="Example 2 code">
-function setup() {
-  createCanvas(200, 100);
-  describe('Two emojis over a pink background', LABEL);
-}
-
-function draw(){  
-  background('pink');
-  fill('yellow');
-  noStroke();
-  describeElement("Grinning face", "A yellow face located to the left. It has simple open eyes and a broad open smile showing upper teeth. Often conveys general pleasure and good cheer or humor.", LABEL);
-  ellipse(50, 50, 70, 70);
-  fill('#ad5240');
-  arc(50, 55, 40, 40, radians(0), radians(180), PIE);
-  fill(0);
-  ellipse(40, 35, 15, 20);
-  ellipse(60, 35, 15, 20);
-  fill(255);
-  arc(50, 55, 40, 20, radians(0), radians(180), PIE);
-  ellipse(43, 35, 5, 5);
-  ellipse(63, 35, 5, 5);
-  describeElement("Smiling face with heart-eyes", "A yellow face located to the right. It has an open smile, and red, cartoon-styled hearts for eyes. Often conveys enthusiastic feelings of love.", LABEL);
-  fill('yellow');
-  ellipse(150, 50, 70, 70);
-  fill('#ad5240');
-  arc(150, 55, 40, 40, radians(0), radians(180), PIE);
-  fill('red');
-  ellipse(143, 35, 10, 10);
-  ellipse(137, 35, 10, 10);
-  triangle(132, 35, 140, 45, 148, 35);
-  ellipse(157, 35, 10, 10);
-  ellipse(163, 35, 10, 10);
-  triangle(168, 35, 160, 45, 152, 35);
-}
-              </code></pre>
-            </div>
         <h3>Description</h3>
-          <p><code>describeElement()</code> creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas sub DOM. The first paramater should be the name of the element. The second parameter should be a string with a description of the element.</p>
-          <p>The third parameter is optional. If specified, it determines how the element description is displayed. <code>describe(name,str,LABEL)</code> displays the description to all users as a <a href="https://en.wikipedia.org/wiki/Museum_label" target="_blank">tombstone or exhibit label/caption<a> by creating a <code>&lt;div id="label"&gt;</code> with the element description right after the canvas. You can style it as you wish in your CSS. <code>describe(name,str,FALLBACK)</code> makes the description accessible to screen-reader users only in a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility" target="_blank">sub DOM inside the canvas element</a>. If a third parameter is not specified, by default, the element description will only be available to screen-reader users.</p>
+          <p><code>describeElement()</code> creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas sub DOM. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed.</p>
+          <p><code class="language-javascript">describeElement(name, str, LABEL)</code> displays the element description to all users as a <a href="https://en.wikipedia.org/wiki/Museum_label" target="_blank"> tombstone or exhibit label/caption</a> by creating a <code class="language-javascript">&lt;div&gt;</code> with the element descriptions right after the canvas. You can style it as you wish in your CSS.</p>
+          <p><code class="language-javascript">describeElement(name, str, FALLBACK)</code> makes the element description accessible to screen-reader users only, in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility" target="_blank"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the element description will only be available to screen-reader users.</p>
         <h3>Syntax</h3>
-          <code>describeElement(name,str,[display])</code>
+          <code>describeElement(name, text, [display])</code>
         <h3>Parameters</h3>
           <table>
             <tr>
               <td>name</td>
-              <td>Name of the element</td>
+              <td>String: name of the element</td>
             </tr>
             <tr>
-              <td>str</td>
-              <td>String describing the element</td>
+              <td>text</td>
+              <td>String: description the element</td>
             </tr>
             <tr>
               <td>display</td>
