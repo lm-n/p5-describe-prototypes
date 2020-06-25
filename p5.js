@@ -1,4 +1,4 @@
-/*! p5.js v1.0.0 June 23, 2020 */
+/*! p5.js v1.0.0 June 24, 2020 */
 (function(f) {
   if (typeof exports === 'object' && typeof module !== 'undefined') {
     module.exports = f();
@@ -63,7 +63,7 @@
                 params: [
                   {
                     name: 'text',
-                    description: '<p>string describing the canvas</p>\n',
+                    description: '<p>description of the canvas</p>\n',
                     type: 'String'
                   },
                   {
@@ -86,7 +86,7 @@
                   },
                   {
                     name: 'text',
-                    description: '<p>string describing the element</p>\n',
+                    description: '<p>description of the element</p>\n',
                     type: 'String'
                   },
                   {
@@ -41179,18 +41179,22 @@
            * The second parameter is optional. If specified, it determines how the
            * description is displayed.
            *
-           * <code class="language-javascript">describe(str, LABEL)</code> displays the description to all users as a
-           * <a href="https://en.wikipedia.org/wiki/Museum_label" target="_blank"> tombstone or exhibit label/caption</a>
-           * by creating a <code class="language-javascript">&lt;div&gt;</code> with the description right after the canvas.
-           * You can style it as you wish in your CSS.
+           * <code class="language-javascript">describe(text, LABEL)</code> displays
+           * the description to all users as a <a
+           * href="https://en.wikipedia.org/wiki/Museum_label" target="_blank">
+           * tombstone or exhibit label/caption</a> in a
+           * <code class="language-javascript">&lt;div class="p5Label"&gt;&lt;/div&gt;</code>
+           * adjacent to the canvas. You can style it as you wish in your CSS.
            *
-           * <code class="language-javascript">describe(str, FALLBACK)</code> makes the description accessible to screen-reader users only, in
+           * <code class="language-javascript">describe(text, FALLBACK)</code> makes the
+           * description accessible to screen-reader users only, in
            * <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility" target="_blank">
-           * a sub DOM inside the canvas element</a>.
-           * If a second parameter is not specified, by default, the description will only be available to screen-reader users.
+           * a sub DOM inside the canvas element</a>. If a second parameter is not
+           * specified, by default, the description will only be available to
+           * screen-reader users.
            *
            * @method describe
-           * @param  {String} text      string describing the canvas
+           * @param  {String} text      description of the canvas
            * @param  {Constant} [display] either LABEL or FALLBACK (Optional)
            *
            * @example
@@ -41251,7 +41255,11 @@
                   .getElementById(cnvId)
                   .insertAdjacentHTML(
                     'afterend',
-                    '<div id="' + cnvId + '_Label"><p id=' + cnvId + '_dLbl></p></div>'
+                    '<div id="' +
+                      cnvId +
+                      '_Label" class="p5Label"><p id=' +
+                      cnvId +
+                      '_dLbl></p></div>'
                   );
               } else if (document.getElementById(cnvId + '_dLbl') === null) {
                 document
@@ -41278,26 +41286,30 @@
           };
 
           /**
-           * <code>describeElement()</code> creates a screen-reader accessible description for
-           * elements —shapes or groups of shapes that create meaning together— in the canvas sub DOM.
-           * The first paramater should be the name of the element. The second parameter should be a
-           * string with a description of the element.
-           * The third parameter is optional.
+           * This function creates a screen-reader accessible
+           * description for elements —shapes or groups of shapes that create
+           * meaning together— in the canvas sub DOM. The first paramater should
+           * be the name of the element. The second parameter should be a string
+           * with a description of the element. The third parameter is optional.
            * If specified, it determines how the element description is displayed.
            *
-           * <code class="language-javascript">describeElement(name, str, LABEL)</code> displays the element description to all users as a
-           * <a href="https://en.wikipedia.org/wiki/Museum_label" target="_blank"> tombstone or exhibit label/caption</a>
-           * by creating a <code class="language-javascript">&lt;div&gt;</code> with the element descriptions right after the canvas.
-           * You can style it as you wish in your CSS.
+           * <code class="language-javascript">describeElement(name, text, LABEL)</code>
+           * displays the element description to all users as a
+           * <a href="https://en.wikipedia.org/wiki/Museum_label" target="_blank">
+           * tombstone or exhibit label/caption</a> in a
+           * <code class="language-javascript">&lt;div class="p5Label"&gt;&lt;/div&gt;</code>
+           * adjacent to the canvas. You can style it as you wish in your CSS.
            *
-           * <code class="language-javascript">describeElement(name, str, FALLBACK)</code> makes the element description accessible to screen-reader users only, in
-           * <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility" target="_blank">
-           * a sub DOM inside the canvas element</a>.
-           * If a second parameter is not specified, by default, the element description will only be available to screen-reader users.
+           * <code class="language-javascript">describeElement(name, text, FALLBACK)</code>
+           * makes the element description accessible to screen-reader users
+           * only, in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility" target="_blank">
+           * a sub DOM inside the canvas element</a>. If a second parameter is not
+           * specified, by default, the element description will only be available
+           * to screen-reader users.
            *
            * @method describeElement
            * @param  {String} name      name of the element
-           * @param  {String} text      string describing the element
+           * @param  {String} text      description of the element
            * @param  {Constant} [display] either LABEL or FALLBACK (Optional)
            *
            * @example
@@ -41366,7 +41378,7 @@
                     'afterend',
                     '<div id="' +
                       cnvId +
-                      '_Label"><table id="' +
+                      '_Label" class="p5Label"><table id="' +
                       cnvId +
                       '_eLbl"></table></div>'
                   );
