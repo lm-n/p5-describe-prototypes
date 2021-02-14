@@ -1,6 +1,6 @@
 function setup() {
   createCanvas(300, 200);
-  describe('a red wheelbarrow beside the white chickens inspired by "The Red Wheelbarrow" by William Carlos Williams', LABEL);
+  describe('a red wheelbarrow beside the white chickens inspired by "The Red Wheelbarrow" by William Carlos Williams');
 }
 
 function draw() {
@@ -9,7 +9,7 @@ function draw() {
   fill('#a67b60');
   rect(0,120,300,100);
   //red wheelbarrow
-  describeElement("wheelbarrow","A red wheelbarrow whith a gray wheel rests on the brown ground.", LABEL);
+  describeElement("wheelbarrow","A red wheelbarrow whith a gray wheel rests on the brown ground.");
   fill('#706a58');
   ellipse(35,137,30,30);
   strokeWeight(3);
@@ -41,7 +41,7 @@ function draw() {
     line(x-5,y+20,x-5,y+30);
     line(x+5,y+20,x+5,y+30);
   }
-  describeElement("chicken1","A white chicken infront of the wheelbarrow.", LABEL);
-  describeElement("chicken2","A white chicken to the right of the wheelbarrow.", LABEL);
-  describeElement("chicken3","A white chicken standing between chicken 1 and chicken 2.", LABEL);
+  describeElement("chicken1","A white chicken infront of the wheelbarrow.");
+  describeElement("chicken2","A white chicken to the right of the wheelbarrow.");
+  describeElement("chicken3","A white chicken standing between chicken 1 and chicken 2.");
 }

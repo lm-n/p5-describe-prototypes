@@ -4,7 +4,7 @@ function setup() {
 }
 
 function draw() {
-  gridOutput(LABEL);
+  gridOutput();
   background(148, 196, 0);
   fill(255, 0, 0);
   ellipse(x, 20, 20, 20);
