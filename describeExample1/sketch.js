@@ -1,5 +1,5 @@
 function setup() {
-  describe('pink square with red heart in the bottom right corner', LABEL);
+  describe('pink square with red heart in the bottom right corner');
   background('pink');
   fill('red');
   noStroke();
